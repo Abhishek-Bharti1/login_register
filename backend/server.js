@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:5173', // Replace with your frontend's URL
+  origin: 'https://login-register-chi-woad.vercel.app', 
   credentials: true
 }));
 
