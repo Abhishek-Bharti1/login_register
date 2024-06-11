@@ -18,6 +18,7 @@ const Login = () => {
 
         } catch (error) {
             console.error(error);
+            toast.error('Please check your credentials and try again');
         }
     };
 

@@ -20,6 +20,8 @@ const navigate = useNavigate();
             navigate('/login');
         } catch (error) {
             console.error(error);
+            toast.error('Please check your credentials and try again');
+
         }
     };
 

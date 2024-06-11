@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
         // Check if user is already logged in on initial load
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('http://localhost:8080/api/auth/me', {
+            axios.get('https://login-register-wytp.vercel.app/api/auth/me', {
                 headers: { 'Authorization': `Bearer ${token}` }
             }).then(response => {
                 setUser(response.data);
@@ -26,14 +26,14 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     const login = async (email, password) => {
-        const response = await axios.post('http://localhost:8080/api/auth/login', { email, password });
+        const response = await axios.post('https://login-register-wytp.vercel.app/api/auth/login', { email, password });
         localStorage.setItem('token', response.data.token);
         setUser(response.data.user);
     };
 
     const register = async (username,email, password) => {
      try {
-        const response = await axios.post('http://localhost:8080/api/auth/register', { username,email, password });
+        const response = await axios.post('https://login-register-wytp.vercel.app/api/auth/register', { username,email, password });
         localStorage.setItem('token', response.data.token);
         setUser(response.data.user);
      } catch (error) {
