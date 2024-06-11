@@ -17,10 +17,14 @@ connectDB();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(helmet());
-app.use(cors({
+
+const corsOptions = {
   origin: 'https://login-register-chi-woad.vercel.app', 
-  credentials: true
-}));
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true 
+};
+app.use(cors(corsOptions));
 
 // Routes
 app.use('/api/auth', authRoutes);
